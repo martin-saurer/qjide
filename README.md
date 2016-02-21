@@ -12,11 +12,19 @@ For an overview of the gui widgets provided by WWD, please see the file WWD.pdf 
 
 For more information, and screenshots please see: [http://code.jsoftware.com/wiki/Scripts/qjide](http://code.jsoftware.com/wiki/Scripts/qjide)
 
+## Prerequisites
+
+A working Python 2.7.x and/or 3.x installation.
+
 ## Installation
 
 * Download the repository into a directory named "qjide"
 
 * Edit qjide.cfg to specify your J installation folder
+
+## Run
+
+Run: python qjide.py
 
 ## Frontend and Web Window Driver
 
