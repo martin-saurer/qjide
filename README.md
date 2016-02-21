@@ -24,7 +24,7 @@ A working Python 2.7.x and/or 3.x installation.
 
 ## Run
 
-Run: python qjide.py
+Run: python qjide.py (from the command line)
 
 ## Frontend and Web Window Driver
 
