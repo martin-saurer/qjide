@@ -22,4 +22,4 @@ For more information, and screenshots please see: [http://code.jsoftware.com/wik
 
 The subdirectory qooxdoo contains all the web stuff.
 
-Download the latest Qooxdoo SDK from [qooxdoo.org](http://qooxdoo.org). Copy the directory "qjide" under \<repository\>/qooxdoo to the "application" directory of the qooxdoo SDK. After a modification/recompilation, copy all the stuff under <qooxdoo-sdk>/application/build to <repository>/webapp.
+Download the latest Qooxdoo SDK from [qooxdoo.org](http://qooxdoo.org). Copy the directory "qjide" under \<repository\>/qooxdoo to the "application" directory of the qooxdoo SDK. After a modification/recompilation, copy all the stuff under \<qooxdoo-sdk\>/application/build to \<repository\>/webapp.
