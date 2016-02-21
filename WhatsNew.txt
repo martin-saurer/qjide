@@ -1,0 +1,233 @@
+qjide: What's new:
+==================
+
+18.02.2016 *** Release 2.2.0 ***************************************************
+
+18.02.2016:
+
+   - Works on J Version 804
+
+05.06.2013:
+
+   - WebApp
+     New widgets: SelectBox, ComboBox, DateField, PasswordField
+
+04.06.2013:
+
+   - qjide.py
+     Replaced sys.version_info.major by sys.version_info[0],
+     so it works again with Python 2.6.
+
+   - WebApp / qjide.py
+     Some internal enhancements. Terminal-, Plot- and WWD-Output is
+     separated from each other.
+
+29.05.2013 *** Release 2.0.0 ***************************************************
+
+29.05.2013:
+
+   - WWD
+     Some WWD (Web Window Driver) documentation.
+
+22.05.2013:
+
+   - qjide.py
+     It's now Python2 AND Python3 compliant.
+
+   - WebApp / qjide.py
+     Testing on different platforms (Windows, Mac, Linux).
+
+21.05.2013:
+
+   - WebApp / qjide.py
+     Finishing implementation of GUI widgets for now.
+     There are a few more (Qooxdoo) widgets to implement.
+     More GUI widgets will be added over time, or by user request.
+
+20.05.2013:
+
+   - WebApp / qjide.py
+     Work on web window driver (almost) completed.
+     A few examples made.
+
+17.04.2013
+
+   - WebApp / qjide.py
+     First functional prototype of web window driver. Juhuuu!!!
+     Next step is implementing more widgets.
+
+14.04.2013
+
+   - qjide.py / qjide.cfg
+     Configuration is now in a separate file, called qjide.cfg.
+     Copy qjide.cfg.template to qjide.cfg, and edit it to meed your needs.
+
+09.04.2013 *** Release 1.4.0 ***************************************************
+
+   - NOTE: Release 1.3.0 was not released to the public.
+
+08.04.2013
+
+   - WebApp
+     Code clean-up.
+
+   - WebApp
+     J output buffer read/print during initialization.
+
+   - qjide.ijs / qjide.py / WebApp
+     Possible to set font sizes for editor and console in qjide.ijs
+     Special thanks to Murray Eisenberg for pointing me on that.
+
+06.04.2013
+
+   - qjide.py
+     Bugfix in J-path resolution '~user' '~temp' etc.
+
+   - qjide.py
+     Plots are now aligned in the center of the plot output window.
+
+   - qjide.ijs
+     Viewmats/Viewbmps are now aligned in the center of the plot output window.
+
+05.04.2013
+
+   - WebApp
+     Ability to toggle editor/terminal splitter (horizontal/vertical).
+     Use: Menu>View>Toggle Splitter
+     or Alt+O
+
+   - WebApp / qjide.py
+     Viewmat uses bitmap output.
+     Special thanks to Bill Lam, for his very useful hints.
+
+   - qjide.py
+     J-Setup is no longer done in qjide.py.
+     There is a new file "qjide.ijs" which will do most of the initialization.
+
+31.03.2013
+
+   - WebApp / qjide.py
+     Viewmat and Plot output in same window (no longer separated)
+     Plot (Viewmat) output in separate tab, so one can enter plot
+     or viewmat commands in the terminal, and on the same time see
+     the output.
+     Please note: The plot/viewmat output window is not visible by
+                  default. Use: Menu>View>Toggle Plot Window
+                  or Alt+P to make it visible/invisible.
+
+   - WebApp
+     Removed the title bar.
+     It consumed to many space in the browser.
+
+27.03.2013 *** Release 1.2.0 ***************************************************
+
+26.03.2013
+
+   - WebApp / qjide.py
+     Code cleanup.
+
+25.03.2013
+
+   - WebApp / qjide.py
+     Package manager implemented.
+
+24.03.2013
+
+   - WebApp / qjide.py
+     Some cleanup.
+     Names used by qjide, placed in the locale _qjide_.
+
+21.03.2013
+
+   - WebApp / qjide.py
+     Some stability improvments on slow systems.
+
+20.03.2013
+
+   - qjide.py
+     Redirect text output before plot or viewmat output to the terminal.
+     This is required to run labs correctly.
+
+   - WebApp / qjide.py
+     Labs are now implemented.
+
+15.03.2013
+
+   - qjide.py
+     Client/Server (different machines / IP addresses) is very fast now.
+
+   - WebApp / qjide.py
+     Plotting now works without problems.
+
+   - WebApp / qjide.py
+     Viewmat reengineered (same architecture as Plotting)
+
+14.03.2013 *** Release 1.1.0 ***************************************************
+
+   - qjide.py
+     Configure a different web browser than the default one, for qjide.
+
+13.03.2013
+
+   - WebApp / qjide.py
+     Added viewmat output, based on the ide/jhs add-on.
+
+12.03.2013
+
+   - WebApp
+     Added Menu>View, to clear the Terminal, and toggle line numbers,
+     and line wrapping in an editor tab.
+
+11.03.2013
+
+   - WebApp
+     Ability to discard an unsaved file. Asked to discard when using
+     Menu>File>Close current
+
+   - WebApp
+     Added keyboard shortcuts for various menu commands:
+
+              Alt+N   Menu > File > New
+              Alt+S   Menu > File > Save current
+              Alt+A   Menu > File > Save current as ...
+
+              Alt+Z   Menu > Edit > Undo
+        Shift+Alt+Z   Menu > Edit > Redo
+
+              Alt+X   Menu > Edit > Cut
+              Alt+C   Menu > Edit > Copy
+              Alt+V   Menu > Edit > Paste
+
+              Alt+F   Menu > Edit > Find first ...
+              Alt+G   Menu > Edit > Find next
+        Shift+Alt+G   Menu > Edit > Find previous
+
+              Alt+R   Menu > Edit > Replace ...
+        Shift+Alt+R   Menu > Edit > Replace all ...
+
+              Alt+L   Menu > Run > Load current script
+
+     Why is the Alt key used instead of the familiar Ctrl key?
+     Most browsers do have many pre-defined keyboard shortcuts
+     using Ctrl+<key>. It's not the best idea to to overwrite
+     these definitions.
+     So I decided to use familiar shortcut keys, prefixed with
+     the Alt key instead of the Ctrl key.
+
+     Due to security reasons, JavaScript does not have access
+     to the clipboard. When using familiar shortcuts like Ctrl+X
+     (Cut), Ctrl+C (Copy) and Ctrl+V (Paste), the system-
+     clipboard is used.
+     When using Menu>Edit>Cut/Copy/Paste, and the corresponding
+     shortcuts (Alt+X, Alt+C, Alt+V) an internal text clipboard
+     is used.
+     As an advantage, you will have two clipboards.
+
+08.03.2013
+
+   - qjide.py
+     J binary folder and J profile may be specified separately.
+
+07.03.2013 *** Initial Release 1.0.0 *******************************************
+
+[EOF]

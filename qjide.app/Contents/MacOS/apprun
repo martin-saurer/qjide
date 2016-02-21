@@ -1,0 +1,2 @@
+#!/bin/sh
+open -a /Applications/Utilities/Terminal.app "`dirname "$0"`/../../../qjide.command"
