@@ -11,3 +11,9 @@ qjide includes the "web window driver" (WWD) which contains a rich set of deskto
 For an overview of the gui widgets provided by WWD, please see the file WWD.pdf included in this project.
 
 For more information, and screenshots please see: [http://code.jsoftware.com/wiki/Scripts/qjide](http://code.jsoftware.com/wiki/Scripts/qjide)
+
+## Installation
+
+* Download the repository into a directory named "qjide"
+
+* Edit qjide.cfg to specify your J installation location
