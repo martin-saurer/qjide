@@ -16,7 +16,7 @@ For more information, and screenshots please see: [http://code.jsoftware.com/wik
 
 * Download the repository into a directory named "qjide"
 
-* Edit qjide.cfg to specify your J installation location
+* Edit qjide.cfg to specify your J installation folder
 
 ## Frontend and Web Window Driver
 
