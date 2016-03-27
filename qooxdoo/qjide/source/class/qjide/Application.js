@@ -20,7 +20,7 @@ qx.Class.define("qjide.Application",
    /////////////////////////////////////////////////////////////////////////////
    members :
    {
-      // This method contains the initial application code and gets called 
+      // This method contains the initial application code and gets called
       // during startup of the application
       //
       // @lint ignoreDeprecated(alert)
@@ -419,7 +419,7 @@ qx.Class.define("qjide.Application",
 
                      // Set layout
                      wwd_gui_data[name].object.setLayout(new qx.ui.layout.Grow());
- 
+
                      // Add this window to root window
                      root.add(wwd_gui_data[name].object);
 
@@ -2708,7 +2708,7 @@ qx.Class.define("qjide.Application",
                {
                   qx.bom.Selection.set(ele,car,car);
                },10);
-            } 
+            }
          }
 
          //////////////////////////////////////////////////////////////////////////
@@ -2760,6 +2760,7 @@ qx.Class.define("qjide.Application",
             // Local variables
             var val = "";
             var out = "";
+            var pos =  0;
 
             // Timer
             if(!tor_timer_started)
@@ -2794,12 +2795,61 @@ qx.Class.define("qjide.Application",
                               // Normal output (out) goes to terminal
                               if(out!="")
                               {
-                                 // Add out to terminal output
-                                 val = this.getValue();
-                                 val = val + out;
-                                 this.setValue(val);
-                                 this.setTextSelection(val.length);
-                                 this.getContentElement().scrollToY(100000);
+                                 // Handle edit file from the command line (Request from John Baker)
+                                 if(out.startsWith("$$$edit$$$"))
+                                 {
+                                    // Extract file name from out
+                                    fil = out.substring(10);
+                                    pos = fil.search("\n");
+                                    if(pos>-1)
+                                    {
+                                       fil = fil.substring(0,pos);
+                                    }
+
+                                    // Get file or directory contents
+                                    json = server_send({head:{fcode:"navi",scode:"goto"},data:fil});
+                                    if(json.head.rcode=="INF")
+                                    {
+                                       // Check whether file or directory
+                                       if(json.head.rmesg=="DIR")
+                                       {
+                                          navi_dir_label.setValue(json.data.path);
+                                          navi_dir_label.getContentElement().scrollToX(1000);
+                                          navi_file_tree_fill(json.data.files);
+                                       }
+                                       else
+                                       {
+                                          // Get file and text
+                                          var fil = json.data.file;
+                                          var tex = json.data.text;
+
+                                          // Add edit page
+                                          add_edit_page(fil,tex);
+                                       }
+                                    }
+                                    else
+                                    {
+                                       // Error message
+                                       show_server_error();
+
+                                       // Stop timer
+                                       tor_timer_started = false;
+                                       wwd_process_event = true;
+                                       timer_manager.stop(tid);
+
+                                       // Return
+                                       return;
+                                    }
+                                 }
+                                 else
+                                 {
+                                    // Add out to terminal output
+                                    val = this.getValue();
+                                    val = val + out;
+                                    this.setValue(val);
+                                    this.setTextSelection(val.length);
+                                    this.getContentElement().scrollToY(100000);
+                                 }
                               }
                            }
                            else
@@ -4175,7 +4225,7 @@ qx.Class.define("qjide.Application",
 
                         // Return
                         return;
-                     }  
+                     }
                   }
                }
 
@@ -4234,7 +4284,7 @@ qx.Class.define("qjide.Application",
 
                         // Return
                         return;
-                     }  
+                     }
                   }
                }
 
@@ -4280,7 +4330,7 @@ qx.Class.define("qjide.Application",
 
                   // Return
                   return;
-               }  
+               }
 
                // Get pacman status
                json = server_send({head:{fcode:"pacman",scode:"status"},data:""});
@@ -4318,7 +4368,7 @@ qx.Class.define("qjide.Application",
 
                   // Return
                   return;
-               }  
+               }
 
                // Get pacman status
                json = server_send({head:{fcode:"pacman",scode:"status"},data:""});
@@ -6589,7 +6639,7 @@ qx.Class.define("qjide.Application",
       } // main
 
    } // members
-  
+
 }); // qx.Class.define
 
 ////////////////////////////////////////////////////////////////////////////////
