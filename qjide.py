@@ -231,7 +231,7 @@ class J():
       self.JOutStr = ''
 
       # J Binaries Folder (absolute or relative (to JInsFol) path)
-      self.JBinFol = 'bin'
+      self.JBinFol = JBinFol
 
       # J Profile (absolute or relative (to JBinFol) path)
       self.JProFil = 'profile.ijs'
