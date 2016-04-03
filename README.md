@@ -22,6 +22,8 @@ A working Python 2.7.x and/or 3.x installation.
 
 * Edit qjide.cfg to specify your J installation folder
 
+* Edit qjide.cfg to specify your J binaries folder, especially on Arch Linux, where libj.so goes to /usr/lib/j8/bin
+
 ## Run
 
 Run: python qjide.py (from the command line)
